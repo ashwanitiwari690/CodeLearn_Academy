@@ -1,0 +1,34 @@
+# ==========================================
+# CodeLearn Academy - robots.txt
+# Standard Crawlers & Google AdSense Verification
+# ==========================================
+
+# Google AdSense Crawler Explicit Authorization
+User-agent: Mediapartners-Google
+Allow: /
+
+# General Search Engine Crawlers
+User-agent: *
+Allow: /
+Allow: /learn/
+Allow: /tutorials/
+Allow: /exercises/
+Allow: /challenges/
+Allow: /projects/
+Allow: /troubleshooting/
+Allow: /interview
+Allow: /about
+Allow: /editorial-guidelines
+Allow: /privacy-policy
+Allow: /cookie-policy
+Allow: /terms
+Allow: /disclaimer
+Allow: /contact
+
+# Disallow internal search query strings and local browser state
+Disallow: /search?*
+Disallow: /progress
+Disallow: /bookmarks
+
+# XML Sitemap Location
+Sitemap: https://codelearn.academy/sitemap.xml
