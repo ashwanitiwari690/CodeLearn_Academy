@@ -240,25 +240,40 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
   `,
   styles: [`
     .tutorial-page {
-      padding: 2.5rem 1.25rem 4rem;
+      padding: 1.5rem 0.85rem 3rem;
+      min-width: 0;
+
+      @media (min-width: 640px) {
+        padding: 2.5rem 1.25rem 4rem;
+      }
     }
     .tutorial-header {
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.75rem;
       border-bottom: 1px solid var(--border-color);
-      padding-bottom: 2rem;
+      padding-bottom: 1.5rem;
+
+      @media (min-width: 640px) {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2rem;
+      }
 
       .meta-pills {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 1rem;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+
+        @media (min-width: 640px) {
+          gap: 0.75rem;
+          margin-bottom: 1rem;
+        }
 
         .meta-item {
           display: inline-flex;
           align-items: center;
           gap: 0.3rem;
-          font-size: 0.825rem;
+          font-size: 0.8rem;
           color: var(--text-muted);
 
           .icon {
@@ -268,16 +283,21 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
       }
 
       .page-title {
-        font-size: 2.4rem;
-        margin: 0 0 1rem;
+        font-size: clamp(1.4rem, 5vw, 2.4rem);
         line-height: 1.25;
+        margin: 0 0 0.75rem;
+        word-break: break-word;
       }
       .lead-intro {
-        font-size: 1.15rem;
+        font-size: clamp(0.95rem, 2.5vw, 1.15rem);
         color: var(--text-muted);
         line-height: 1.6;
-        margin: 0 0 1.75rem;
+        margin: 0 0 1.25rem;
         max-width: 840px;
+
+        @media (min-width: 640px) {
+          margin-bottom: 1.75rem;
+        }
       }
 
       .author-row {
@@ -519,11 +539,23 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
 
       .tutorial-pager {
         display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-top: 3rem;
-        padding-top: 2rem;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
         border-top: 1px solid var(--border-color);
+
+        @media (min-width: 640px) {
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 1rem;
+          margin-top: 3rem;
+          padding-top: 2rem;
+
+          .pager-btn {
+            max-width: 48%;
+          }
+        }
 
         .pager-btn {
           display: flex;
@@ -533,7 +565,7 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
           border: 1px solid var(--border-color);
           border-radius: var(--radius-sm);
           text-decoration: none;
-          max-width: 48%;
+          width: 100%;
           transition: all 0.15s ease;
 
           &:hover {

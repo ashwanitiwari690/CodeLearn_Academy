@@ -305,11 +305,15 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
 
     /* Hero */
     .hero-section {
-      padding: 5.5rem 0 4.5rem;
+      padding: 3.5rem 0 2.5rem;
       text-align: center;
       background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(56, 189, 248, 0.18), transparent);
       border-bottom: 1px solid var(--border-color);
       position: relative;
+
+      @media (min-width: 640px) {
+        padding: 5.5rem 0 4.5rem;
+      }
     }
     .hero-container {
       max-width: 900px;
@@ -322,14 +326,20 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.4rem 1rem;
+      padding: 0.35rem 0.85rem;
       background: rgba(30, 41, 59, 0.8);
       border: 1px solid rgba(56, 189, 248, 0.25);
       border-radius: 9999px;
-      font-size: 0.825rem;
+      font-size: 0.8rem;
       font-weight: 500;
       color: #cbd5e1;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.25rem;
+
+      @media (min-width: 640px) {
+        padding: 0.4rem 1rem;
+        font-size: 0.825rem;
+        margin-bottom: 1.75rem;
+      }
 
       .pulse-dot {
         width: 8px;
@@ -340,14 +350,15 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
       }
     }
     .hero-headline {
-      font-size: 2.75rem;
+      font-size: clamp(1.85rem, 6.5vw, 3.75rem);
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.03em;
-      margin: 0 0 1.25rem;
+      margin: 0 0 1rem;
+      word-break: break-word;
 
-      @media (min-width: 768px) {
-        font-size: 3.75rem;
+      @media (min-width: 640px) {
+        margin-bottom: 1.25rem;
       }
     }
     .gradient-text {
@@ -356,61 +367,103 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
       -webkit-text-fill-color: transparent;
     }
     .hero-description {
-      font-size: 1.15rem;
-      line-height: 1.65;
+      font-size: clamp(0.95rem, 3vw, 1.15rem);
+      line-height: 1.6;
       color: var(--text-muted);
       max-width: 720px;
-      margin: 0 0 2.25rem;
+      margin: 0 0 1.75rem;
+
+      @media (min-width: 640px) {
+        line-height: 1.65;
+        margin-bottom: 2.25rem;
+      }
     }
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 2.75rem;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 380px;
+      margin-bottom: 2rem;
+
+      @media (min-width: 480px) {
+        flex-direction: row;
+        justify-content: center;
+        max-width: none;
+        width: auto;
+        gap: 1rem;
+        margin-bottom: 2.75rem;
+
+        .btn {
+          min-width: 170px;
+        }
+      }
 
       .btn {
-        min-width: 170px;
+        width: 100%;
+        @media (min-width: 480px) {
+          width: auto;
+        }
       }
     }
     .philosophy-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.5rem;
       justify-content: center;
+
+      @media (min-width: 640px) {
+        gap: 0.75rem;
+      }
 
       .pill-item {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.4rem 0.85rem;
+        gap: 0.4rem;
+        padding: 0.35rem 0.75rem;
         background: rgba(15, 23, 42, 0.6);
         border: 1px solid var(--border-color);
         border-radius: 9999px;
-        font-size: 0.825rem;
+        font-size: 0.775rem;
         color: #94a3b8;
 
+        @media (min-width: 640px) {
+          gap: 0.5rem;
+          padding: 0.4rem 0.85rem;
+          font-size: 0.825rem;
+        }
+
         .pill-icon {
-          font-size: 1.1rem;
+          font-size: 1rem;
           color: var(--primary);
+
+          @media (min-width: 640px) {
+            font-size: 1.1rem;
+          }
         }
       }
     }
 
     /* Section Headers */
     .section {
-      padding: 4rem 0;
+      padding: 2.5rem 0;
+
+      @media (min-width: 640px) {
+        padding: 4rem 0;
+      }
     }
     .section-header {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
 
       @media (min-width: 768px) {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-end;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
       }
     }
     .section-badge {
@@ -420,19 +473,21 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--primary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
     .section-title {
-      font-size: 2rem;
+      font-size: clamp(1.4rem, 4.5vw, 2rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       margin: 0 0 0.5rem;
+      word-break: break-word;
     }
     .section-subtitle {
-      font-size: 1rem;
+      font-size: clamp(0.875rem, 2.5vw, 1rem);
       color: var(--text-muted);
       margin: 0;
       max-width: 620px;
+      line-height: 1.55;
     }
     .link-arrow {
       display: inline-flex;

@@ -117,13 +117,24 @@ button, input, select, textarea {
    Container & Layout Utilities
    ========================================================================== */
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .container {
   width: 100%;
   max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (min-width: 640px) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 
   @media (min-width: 768px) {
     padding-left: 2rem;
@@ -138,22 +149,33 @@ button, input, select, textarea {
 .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 
 @media (min-width: 640px) {
-  .sm\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm\:grid-cols-2,
+  [class*="sm:grid-cols-2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (min-width: 768px) {
-  .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .md\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .md\:grid-cols-2,
+  [class*="md:grid-cols-2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:grid-cols-3,
+  [class*="md:grid-cols-3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (min-width: 1024px) {
-  .lg\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .lg\\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .lg\:grid-cols-3,
+  [class*="lg:grid-cols-3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lg\:grid-cols-4,
+  [class*="lg:grid-cols-4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 .gap-4 { gap: 1rem; }
-.gap-6 { gap: 1.5rem; }
-.gap-8 { gap: 2rem; }
+.gap-6 { gap: 1.25rem; }
+@media (min-width: 640px) {
+  .gap-6 { gap: 1.5rem; }
+}
+.gap-8 { gap: 1.5rem; }
+@media (min-width: 768px) {
+  .gap-8 { gap: 2rem; }
+}
 
 .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
 .my-6 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
@@ -173,9 +195,14 @@ button, input, select, textarea {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
+  padding: 1.15rem;
+  min-width: 0;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-sm);
+
+  @media (min-width: 640px) {
+    padding: 1.5rem;
+  }
 
   &:hover {
     border-color: var(--border-hover);
@@ -327,6 +354,9 @@ button, input, select, textarea {
   color: #cbd5e1;
   font-size: 1rem;
   line-height: 1.75;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  min-width: 0;
 
   p {
     margin-bottom: 1.25rem;
@@ -337,15 +367,20 @@ button, input, select, textarea {
     font-weight: 700;
     line-height: 1.3;
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
   }
 
-  h1 { font-size: 2.25rem; margin-bottom: 1.25rem; }
-  h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.85rem; }
-  h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.65rem; }
+  h1 { font-size: clamp(1.6rem, 5vw, 2.25rem); margin-bottom: 1.25rem; }
+  h2 { font-size: clamp(1.25rem, 4vw, 1.5rem); margin-top: 2rem; margin-bottom: 0.85rem; }
+  h3 { font-size: clamp(1.05rem, 3.5vw, 1.25rem); margin-top: 1.5rem; margin-bottom: 0.65rem; }
 
   ul, ol {
     margin-bottom: 1.25rem;
-    padding-left: 1.5rem;
+    padding-left: 1.25rem;
+
+    @media (min-width: 640px) {
+      padding-left: 1.5rem;
+    }
   }
 
   li {
@@ -360,10 +395,14 @@ button, input, select, textarea {
     font-family: var(--font-mono);
     font-size: 0.875em;
     border: 1px solid rgba(56, 189, 248, 0.15);
+    word-break: break-word;
   }
 
   pre {
-    margin: 1.5rem 0;
+    margin: 1.25rem 0;
     border-radius: var(--radius-sm);
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }

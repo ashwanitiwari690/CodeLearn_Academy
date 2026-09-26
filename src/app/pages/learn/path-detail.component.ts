@@ -229,46 +229,62 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
   `,
   styles: [`
     .path-detail-page {
-      padding: 2.5rem 1.25rem 4rem;
+      padding: 1.5rem 0.85rem 3rem;
+      min-width: 0;
+
+      @media (min-width: 640px) {
+        padding: 2.5rem 1.25rem 4rem;
+      }
     }
     .path-header {
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.75rem;
+
+      @media (min-width: 640px) {
+        margin-bottom: 2.5rem;
+      }
 
       .header-badges {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.5rem;
         margin-bottom: 0.75rem;
       }
       .page-title {
-        font-size: 2.5rem;
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        line-height: 1.25;
         margin: 0 0 0.75rem;
+        word-break: break-word;
       }
       .lead-text {
-        font-size: 1.15rem;
+        font-size: clamp(0.95rem, 2.5vw, 1.15rem);
         color: var(--text-muted);
         line-height: 1.6;
         max-width: 820px;
-        margin: 0 0 1.5rem;
+        margin: 0 0 1.25rem;
       }
     }
     .quick-stats-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.5rem;
+
+      @media (min-width: 640px) {
+        gap: 1rem;
+      }
 
       .stat-pill {
         display: inline-flex;
         align-items: center;
         gap: 0.45rem;
-        padding: 0.4rem 0.85rem;
+        padding: 0.35rem 0.75rem;
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: var(--radius-sm);
-        font-size: 0.85rem;
+        font-size: 0.825rem;
         color: #94a3b8;
 
         .icon {
-          font-size: 1.1rem;
+          font-size: 1rem;
           color: var(--primary);
         }
       }
@@ -277,21 +293,33 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
     .layout-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
+      min-width: 0;
 
       @media (min-width: 1024px) {
         grid-template-columns: 1fr 340px;
+        gap: 2rem;
       }
     }
 
     .syllabus-col {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.5rem;
+      min-width: 0;
+
+      @media (min-width: 640px) {
+        gap: 2rem;
+      }
     }
 
     .section-card {
-      padding: 1.75rem;
+      padding: 1.15rem;
+      min-width: 0;
+
+      @media (min-width: 640px) {
+        padding: 1.75rem;
+      }
 
       .section-title {
         display: flex;

@@ -212,17 +212,28 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
   `,
   styles: [`
     .tb-detail-page {
-      padding: 2.5rem 1.25rem 4rem;
+      padding: 1.5rem 0.85rem 3rem;
+      min-width: 0;
+
+      @media (min-width: 640px) {
+        padding: 2.5rem 1.25rem 4rem;
+      }
     }
     .tb-header {
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
       border-bottom: 1px solid var(--border-color);
-      padding-bottom: 2rem;
+      padding-bottom: 1.25rem;
+
+      @media (min-width: 640px) {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2rem;
+      }
 
       .meta-row {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        gap: 1rem;
+        gap: 0.5rem;
         margin-bottom: 0.75rem;
 
         .category-tag {
@@ -235,7 +246,7 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
           color: #f87171;
 
           .icon {
-            font-size: 1.1rem;
+            font-size: 1rem;
           }
         }
         .date-tag {
@@ -249,21 +260,22 @@ import { AdSlotComponent } from '../../components/ad-slot/ad-slot.component';
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
-        margin-bottom: 1rem;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
 
         .page-title {
-          font-size: 2.25rem;
+          font-size: clamp(1.4rem, 5vw, 2.25rem);
           margin: 0;
-          line-height: 1.3;
+          line-height: 1.25;
+          word-break: break-word;
         }
       }
 
       .summary-text {
-        font-size: 1.15rem;
+        font-size: clamp(0.95rem, 2.5vw, 1.15rem);
         color: var(--text-muted);
         line-height: 1.6;
-        margin: 0 0 1.5rem;
+        margin: 0 0 1.25rem;
         max-width: 840px;
       }
 
