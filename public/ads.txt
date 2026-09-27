@@ -1,16 +1,1 @@
-# ==============================================================================
-# CodeLearn Academy - Authorized Digital Sellers (ads.txt)
-# Specification: https://iabtechlab.com/ads-txt/
-#
-# IMPORTANT:
-# This file is prepared for Google AdSense monetization.
-# Per Google guidelines and IAB standards, do not publish unverified placeholder
-# publisher IDs as active records.
-#
-# Once your Google AdSense account is approved:
-# Replace the commented line below with your official publisher ID:
-#
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-#
-# Where "pub-XXXXXXXXXXXXXXXX" is your 16-digit Google AdSense Publisher ID.
-# ==============================================================================
+google.com, pub-2030586584805301, DIRECT, f08c47fec0942fa0
